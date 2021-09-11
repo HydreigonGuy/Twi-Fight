@@ -9,10 +9,10 @@
 
 void mouse_reset(mouse_t *mouse)
 {
-    mouse->x = 0;
-    mouse->y = 0;
-    mouse->p_x = 0;
-    mouse->p_y = 0;
-    mouse->r_x = 0;
-    mouse->r_y = 0;
+    mouse->x = -1;
+    mouse->y = -1;
+    mouse->p_x = -1;
+    mouse->p_y = -1;
+    mouse->r_x = -1;
+    mouse->r_y = -1;
 }

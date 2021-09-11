@@ -78,6 +78,19 @@
         int state;
     } game_t;
 
+    typedef struct tower_s {
+        sprite_t *spr;
+        int atk;
+        int cooldown;
+        int max_cooldown;
+        struct tower_s *next;
+    } tower_t;
+
+    typedef struct playing_s {
+        int tower_selected;
+        tower_t *tower;
+    } playing_t;
+
     #define FRAME_RATE  30
     #define WINDOW_NAME "Game"
 
@@ -98,12 +111,15 @@
     sprite_t *fill_sprite(char *file, int setx, int sety);
     void fill_background(background_t **bg, char *file, int x, int y);
     void fill_btn(button_t **btn, char *file, int x, int y);
+    playing_t *fill_game_info(void);
+    tower_t *fill_tower(int selected, int x, int y);
 
     // free structs
     void free_game(game_t *game);
     void free_game_time(game_time_t *clock);
     void free_sprite(sprite_t *spr);
     void free_scene(scene_t *scene);
+    void free_game_info(playing_t *game_info);
 
     // next scene
     void next_scene(game_t *game);
@@ -121,6 +137,12 @@
     // event handeling
     void handle_events(game_t *game);
 
+    // handle_placing_towers
+    void handle_placing_towers(game_t *game, playing_t *game_info, button_t *btn);
+    void highlignt_selected_tower_btn(int selected, button_t *btn);
+    void handle_selecting_tower(int *state, playing_t *game_info);
+    void add_tower(playing_t *game_info, int x, int y);
+
     //////////////////// scenes ////////////////////
 
     // start menu
@@ -132,6 +154,6 @@
     // play game
     void play_game(game_t *game);
     scene_t *fill_play_game_scene(void);
-    void display_play_game(sfRenderWindow *window, scene_t *scene);
+    void display_play_game(sfRenderWindow *window, scene_t *scene, playing_t *gi);
 
 #endif /* !GAME_STRUCTS_H_ */
