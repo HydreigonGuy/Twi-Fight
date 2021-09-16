@@ -12,13 +12,13 @@
 char *get_tower_path(int i)
 {
     if (i == 1)
-        return ("good/adrien_tower.png");
+        return ("good/knife_tower.png");
     if (i == 2)
-        return ("good/adrien_tower.png");
+        return ("good/chemist_tower.png");
     if (i == 3)
         return ("good/adrien_tower.png");
     if (i == 4)
-        return ("good/adrien_tower.png");
+        return ("good/roxane_tower.png");
 }
 
 int get_tower_atk(int i)
@@ -53,8 +53,8 @@ tower_t *fill_tower(int selected, int x, int y)
     if (!tower)
         return (NULL);
     tower->spr = fill_sprite(my_str_concat(IMAGE_PATH,
-        get_tower_path(selected)), x, y);
-    fill_rect(tower->spr, 150, 200);
+        get_tower_path(selected)), x - 50, y - 50);
+    fill_rect(tower->spr, 100, 100);
     tower->atk = get_tower_atk(selected);
     tower->cooldown = 0;
     tower->max_cooldown = get_tower_max_cd(selected);
