@@ -144,6 +144,7 @@
     void highlignt_selected_tower_btn(int selected, button_t *btn);
     void handle_selecting_tower(int *state, playing_t *game_info);
     void add_tower(playing_t *game_info, int x, int y);
+    int check_if_can_place_tower(mouse_t *mouse);
 
     //////////////////// scenes ////////////////////
 

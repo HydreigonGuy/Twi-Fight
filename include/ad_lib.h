@@ -15,5 +15,7 @@
     int my_strlen(char *str);
     char *read_file(char *file_name);
     char *my_str_concat(char *s1, char *s2);
+    int my_square_root(int number);
+    int my_vector_norm(int x1, int y1, int x2, int y2);
 
 #endif /* !AD_LIB_H_ */

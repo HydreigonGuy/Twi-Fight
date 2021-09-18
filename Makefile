@@ -34,6 +34,7 @@ SRC	=	src/main.c	\
 		src/handle_placing_towers/highlignt_selected_tower_btn.c	\
 		src/handle_placing_towers/handle_selecting_tower.c	\
 		src/handle_placing_towers/add_tower.c	\
+		src/handle_placing_towers/check_if_can_place_tower.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
 		src/start_menu/display_start_menu.c	\
@@ -41,6 +42,8 @@ SRC	=	src/main.c	\
 		src/play_game/play_game.c	\
 		src/play_game/display_play_game.c	\
 		src/play_game/fill_play_game_scene.c	\
+		adrien_lib/my_square_root.c	\
+		adrien_lib/my_vector_norm.c	\
 		adrien_lib/my_str_concat.c	\
 		adrien_lib/my_strlen.c
 
