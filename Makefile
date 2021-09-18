@@ -22,6 +22,8 @@ SRC	=	src/main.c	\
 		src/free_structs/free_scene.c	\
 		src/free_structs/free_game_info.c	\
 		src/rect_handeling/fill_rect.c	\
+		src/rect_handeling/rerect_sprites.c	\
+		src/rect_handeling/calculate_rect_number.c	\
 		src/events/handle_events.c	\
 		src/mouse/mouse_check.c	\
 		src/mouse/mouse_on_button.c	\

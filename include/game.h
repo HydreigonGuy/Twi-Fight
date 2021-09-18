@@ -133,6 +133,8 @@
 
     // rect handeling
     void fill_rect(sprite_t *spr, int x, int y);
+    void rerect_sprites(sprite_t *spr, int rect_number);
+    int calculate_rect_number(sfTime time);
 
     // event handeling
     void handle_events(game_t *game);
@@ -154,6 +156,6 @@
     // play game
     void play_game(game_t *game);
     scene_t *fill_play_game_scene(void);
-    void display_play_game(sfRenderWindow *window, scene_t *scene, playing_t *gi);
+    void display_play_game(sfRenderWindow *wdw, game_time_t *clk, scene_t *scn, playing_t *gi);
 
 #endif /* !GAME_STRUCTS_H_ */

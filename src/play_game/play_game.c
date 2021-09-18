@@ -20,7 +20,7 @@ void play_game(game_t *game)
         mouse_check(scene->btn, game);
         handle_placing_towers(game, game_info, scene->btn);
         //handle_tower_attacks();
-        display_play_game(game->window, scene, game_info);
+        display_play_game(game->window, game->clock, scene, game_info);
     }
     free_scene(scene);
     free_game_info(game_info);
