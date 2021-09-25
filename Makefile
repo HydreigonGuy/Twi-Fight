@@ -26,6 +26,7 @@ SRC	=	src/main.c	\
 		src/rect_handeling/rerect_sprites.c	\
 		src/rect_handeling/calculate_rect_number.c	\
 		src/events/handle_events.c	\
+		src/events/handle_ingame_events.c	\
 		src/mouse/mouse_check.c	\
 		src/mouse/mouse_on_button.c	\
 		src/mouse/mouse_pressed_button.c	\
@@ -39,6 +40,8 @@ SRC	=	src/main.c	\
 		src/handle_enemies/handle_enemies.c	\
 		src/handle_enemies/spawn_enemies.c	\
 		src/handle_enemies/spawn_enemy.c	\
+		src/handle_enemies/move_enemies.c	\
+		src/handle_enemies/fill_enemy_dialog.c	\
 		src/handle_game_time/reset_game_time.c	\
 		src/handle_game_time/update_clock.c	\
 		src/start_menu/start_menu.c	\

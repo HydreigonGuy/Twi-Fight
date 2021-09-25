@@ -18,7 +18,7 @@ void play_game(game_t *game)
     reset_game_time(game->clock);
     while (sfRenderWindow_isOpen(game->window) && game->state == 0) {
         update_clock(game->clock);
-        handle_events(game);
+        handle_ingame_events(handle_events(game), game_info);
         mouse_check(scene->btn, game);
         handle_placing_towers(game, game_info, scene->btn);
         //handle_tower_attacks();

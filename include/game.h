@@ -51,6 +51,10 @@
         struct sound_s *next;
     } sound_t;
 
+    typedef struct extra_events_s {
+        int space_bar_press;
+    } extra_events_t;
+
     typedef struct music_s {
         sfMusic *music;
         int id;
@@ -96,6 +100,7 @@
 
     typedef struct playing_s {
         int tower_selected;
+        sprite_t **dialog;
         tower_t *tower;
         enemy_t *enemy;
         int spawn_var;
@@ -153,7 +158,8 @@
     int calculate_rect_number(sfTime time);
 
     // event handeling
-    void handle_events(game_t *game);
+    extra_events_t handle_events(game_t *game);
+    void handle_ingame_events(extra_events_t event, playing_t *game_info);
 
     // handle_placing_towers
     void handle_placing_towers(game_t *game, playing_t *game_info, button_t *btn);
@@ -166,6 +172,8 @@
     void handle_enemies(int clock, playing_t *game_info);
     void spawn_enemies(playing_t *gi);
     void spawn_enemy(int id, int x, enemy_t **enemy);
+    void move_enemies(int clock, playing_t *game_info);
+    void fill_enemy_dialog(playing_t *game_info);
 
     // handle_game_time
     void reset_game_time(game_time_t *clock);

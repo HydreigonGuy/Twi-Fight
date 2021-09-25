@@ -29,5 +29,8 @@ void display_play_game(window_t *wdw, clk_t *clk, scene_t *scn, playing_t *gi)
         sfSprite_setTextureRect(btn->spr->spr, btn->spr->r);
         sfRenderWindow_drawSprite(wdw, btn->spr->spr, NULL);
     }
+    if (gi->spawn_var < 0 && gi->dialog[1] && gi->dialog[2])
+        for (int i = 0; i < 3; i++)
+            sfRenderWindow_drawSprite(wdw, gi->dialog[i]->spr, NULL);
     sfRenderWindow_display(wdw);
 }
