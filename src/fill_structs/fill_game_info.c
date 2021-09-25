@@ -17,5 +17,7 @@ playing_t *fill_game_info(void)
         return (NULL);
     game_info->tower_selected = 0;
     game_info->tower = NULL;
+    game_info->enemy = NULL;
+    game_info->spawn_var = 1;
     return (game_info);
 }

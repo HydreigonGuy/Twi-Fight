@@ -16,6 +16,7 @@ SRC	=	src/main.c	\
 		src/fill_structs/fill_btn.c	\
 		src/fill_structs/fill_game_info.c	\
 		src/fill_structs/fill_tower.c	\
+		src/fill_structs/fill_enemy.c	\
 		src/free_structs/free_game.c	\
 		src/free_structs/free_game_time.c	\
 		src/free_structs/free_sprite.c	\
@@ -35,6 +36,11 @@ SRC	=	src/main.c	\
 		src/handle_placing_towers/handle_selecting_tower.c	\
 		src/handle_placing_towers/add_tower.c	\
 		src/handle_placing_towers/check_if_can_place_tower.c	\
+		src/handle_enemies/handle_enemies.c	\
+		src/handle_enemies/spawn_enemies.c	\
+		src/handle_enemies/spawn_enemy.c	\
+		src/handle_game_time/reset_game_time.c	\
+		src/handle_game_time/update_clock.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
 		src/start_menu/display_start_menu.c	\

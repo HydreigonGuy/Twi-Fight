@@ -68,6 +68,7 @@
     typedef struct game_time_s {
         sfClock *clock;
         sfTime time;
+        int time_elapsed;
     } game_time_t;
 
     typedef struct game_s {
@@ -86,15 +87,29 @@
         struct tower_s *next;
     } tower_t;
 
+    typedef struct enemy_s {
+        sprite_t *spr;
+        int hp;
+        int spd;
+        struct enemy_s *next;
+    } enemy_t;
+
     typedef struct playing_s {
         int tower_selected;
         tower_t *tower;
+        enemy_t *enemy;
+        int spawn_var;
     } playing_t;
 
     #define FRAME_RATE  30
     #define WINDOW_NAME "Game"
 
     #define IMAGE_PATH  "assets/images/"
+
+    #define ENEMY_SEPARATION    150
+    #define ENEMY_Y             200
+
+    #define ENEMY_SPD_LIMITTER  50000
 
     // game states
     #define GAME_STATE_EXIT         -3
@@ -113,6 +128,7 @@
     void fill_btn(button_t **btn, char *file, int x, int y);
     playing_t *fill_game_info(void);
     tower_t *fill_tower(int selected, int x, int y);
+    enemy_t *fill_enemy(int id, int x);
 
     // free structs
     void free_game(game_t *game);
@@ -145,6 +161,15 @@
     void handle_selecting_tower(int *state, playing_t *game_info);
     void add_tower(playing_t *game_info, int x, int y);
     int check_if_can_place_tower(mouse_t *mouse);
+
+    // handle enemies
+    void handle_enemies(int clock, playing_t *game_info);
+    void spawn_enemies(playing_t *gi);
+    void spawn_enemy(int id, int x, enemy_t **enemy);
+
+    // handle_game_time
+    void reset_game_time(game_time_t *clock);
+    void update_clock(game_time_t *clock);
 
     //////////////////// scenes ////////////////////
 

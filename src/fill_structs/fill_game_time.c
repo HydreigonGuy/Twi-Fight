@@ -16,5 +16,6 @@ game_time_t *fill_game_time(void)
     if (!clock)
         return (NULL);
     clock->clock = sfClock_create();
+    clock->time_elapsed = 0;
     return (clock);
 }
