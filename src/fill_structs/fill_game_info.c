@@ -19,6 +19,7 @@ playing_t *fill_game_info(void)
     game_info->tower_selected = 0;
     game_info->tower = NULL;
     game_info->enemy = NULL;
+    game_info->atk = NULL;
     game_info->spawn_var = -1;
     game_info->dialog = malloc(sizeof(sprite_t) * 3);
     if (!game_info->dialog)

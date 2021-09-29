@@ -17,11 +17,21 @@ SRC	=	src/main.c	\
 		src/fill_structs/fill_game_info.c	\
 		src/fill_structs/fill_tower.c	\
 		src/fill_structs/fill_enemy.c	\
+		src/fill_structs/fill_attack.c	\
+		src/fill_structs/attack_parameters/get_attack_size.c	\
+		src/fill_structs/attack_parameters/get_attack_sprite.c	\
+		src/fill_structs/tower_parameters/get_tower_atk.c	\
+		src/fill_structs/tower_parameters/get_tower_max_cd.c	\
+		src/fill_structs/tower_parameters/get_tower_path.c	\
+		src/fill_structs/tower_parameters/get_tower_spd.c	\
 		src/free_structs/free_game.c	\
 		src/free_structs/free_game_time.c	\
 		src/free_structs/free_sprite.c	\
 		src/free_structs/free_scene.c	\
 		src/free_structs/free_game_info.c	\
+		src/free_structs/free_all_attacks.c	\
+		src/free_structs/free_all_enemies.c	\
+		src/free_structs/free_all_towers.c	\
 		src/rect_handeling/fill_rect.c	\
 		src/rect_handeling/rerect_sprites.c	\
 		src/rect_handeling/calculate_rect_number.c	\
@@ -44,6 +54,12 @@ SRC	=	src/main.c	\
 		src/handle_enemies/fill_enemy_dialog.c	\
 		src/handle_game_time/reset_game_time.c	\
 		src/handle_game_time/update_clock.c	\
+		src/handle_tower_attacks/handle_tower_attacks.c	\
+		src/handle_tower_attacks/create_tower_attacks.c	\
+		src/handle_tower_attacks/add_one_attack.c	\
+		src/handle_tower_attacks/get_next_atk_crds.c	\
+		src/handle_tower_attacks/remove_excess_attacks.c	\
+		src/handle_tower_attacks/out_of_bounds.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
 		src/start_menu/display_start_menu.c	\

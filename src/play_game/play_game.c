@@ -21,7 +21,7 @@ void play_game(game_t *game)
         handle_ingame_events(handle_events(game), game_info);
         mouse_check(scene->btn, game);
         handle_placing_towers(game, game_info, scene->btn);
-        //handle_tower_attacks();
+        handle_tower_attacks(game, game_info);
         handle_enemies(game->clock->time_elapsed, game_info);
         display_play_game(game->window, game->clock, scene, game_info);
     }

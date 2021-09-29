@@ -85,7 +85,9 @@
 
     typedef struct tower_s {
         sprite_t *spr;
+        int id;
         int atk;
+        int spd;
         int cooldown;
         int max_cooldown;
         struct tower_s *next;
@@ -98,11 +100,20 @@
         struct enemy_s *next;
     } enemy_t;
 
+    typedef struct attack_s {
+        sprite_t *spr;
+        int id;
+        int atk;
+        int spd;
+        struct attack_s *next;
+    } attack_t;
+
     typedef struct playing_s {
         int tower_selected;
         sprite_t **dialog;
         tower_t *tower;
         enemy_t *enemy;
+        attack_t *atk;
         int spawn_var;
     } playing_t;
 
@@ -114,7 +125,9 @@
     #define ENEMY_SEPARATION    150
     #define ENEMY_Y             200
 
-    #define ENEMY_SPD_LIMITTER  50000
+    #define ENEMY_SPD_LIMITTER      50000
+    #define ATTACK_SPD_LIMITTER     50000
+    #define TOWER_CD_LIMITTER       30000
 
     // game states
     #define GAME_STATE_EXIT         -3
@@ -134,6 +147,17 @@
     playing_t *fill_game_info(void);
     tower_t *fill_tower(int selected, int x, int y);
     enemy_t *fill_enemy(int id, int x);
+    attack_t *fill_attack(tower_t *tower);
+
+    // attack parameters
+    int get_attack_size(int id);
+    char *get_attack_sprite(int id);
+
+    // tower parameters
+    int get_tower_spd(int i);
+    char *get_tower_path(int i);
+    int get_tower_max_cd(int i);
+    int get_tower_atk(int i);
 
     // free structs
     void free_game(game_t *game);
@@ -141,6 +165,9 @@
     void free_sprite(sprite_t *spr);
     void free_scene(scene_t *scene);
     void free_game_info(playing_t *game_info);
+    void free_all_attacks(attack_t *atk);
+    void free_all_towers(tower_t *tower);
+    void free_all_enemies(enemy_t *enemy);
 
     // next scene
     void next_scene(game_t *game);
@@ -178,6 +205,14 @@
     // handle_game_time
     void reset_game_time(game_time_t *clock);
     void update_clock(game_time_t *clock);
+
+    // handle tower attacks
+    void handle_tower_attacks(game_t *game, playing_t *game_info);
+    void create_tower_attacks(playing_t *game_info);
+    void add_one_attack(attack_t **atk, tower_t *tower);
+    void get_next_atk_crds(attack_t *atk, int elapsed_time);
+    void remove_excess_attacks(attack_t **atk);
+    int out_of_bounds(sprite_t *spr);
 
     //////////////////// scenes ////////////////////
 
