@@ -32,6 +32,8 @@ SRC	=	src/main.c	\
 		src/free_structs/free_all_attacks.c	\
 		src/free_structs/free_all_enemies.c	\
 		src/free_structs/free_all_towers.c	\
+		src/free_structs/free_one_attack.c	\
+		src/free_structs/free_one_enemy.c	\
 		src/rect_handeling/fill_rect.c	\
 		src/rect_handeling/rerect_sprites.c	\
 		src/rect_handeling/calculate_rect_number.c	\
@@ -60,6 +62,9 @@ SRC	=	src/main.c	\
 		src/handle_tower_attacks/get_next_atk_crds.c	\
 		src/handle_tower_attacks/remove_excess_attacks.c	\
 		src/handle_tower_attacks/out_of_bounds.c	\
+		src/handle_tower_attacks/find_furthest_enemy_x.c	\
+		src/handle_tower_attacks/handle_atk_enemy_collision.c	\
+		src/handle_tower_attacks/check_for_atk_colision.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
 		src/start_menu/display_start_menu.c	\

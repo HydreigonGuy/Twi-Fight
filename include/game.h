@@ -105,6 +105,7 @@
         int id;
         int atk;
         int spd;
+        int direction;
         struct attack_s *next;
     } attack_t;
 
@@ -126,7 +127,7 @@
     #define ENEMY_Y             200
 
     #define ENEMY_SPD_LIMITTER      50000
-    #define ATTACK_SPD_LIMITTER     50000
+    #define ATTACK_SPD_LIMITTER     40000
     #define TOWER_CD_LIMITTER       30000
 
     // game states
@@ -168,6 +169,8 @@
     void free_all_attacks(attack_t *atk);
     void free_all_towers(tower_t *tower);
     void free_all_enemies(enemy_t *enemy);
+    void free_one_attack(playing_t *game_info, attack_t *atk);
+    void free_one_enemy(playing_t *game_info, enemy_t *enm);
 
     // next scene
     void next_scene(game_t *game);
@@ -210,9 +213,12 @@
     void handle_tower_attacks(game_t *game, playing_t *game_info);
     void create_tower_attacks(playing_t *game_info);
     void add_one_attack(attack_t **atk, tower_t *tower);
-    void get_next_atk_crds(attack_t *atk, int elapsed_time);
+    void get_next_atk_crds(attack_t *atk, int e_time, int enemy_x);
     void remove_excess_attacks(attack_t **atk);
     int out_of_bounds(sprite_t *spr);
+    int find_furthest_enemy_x(enemy_t *enemy);
+    void handle_atk_enemy_collision(playing_t *game_info);
+    int check_for_atk_colision(playing_t *gi, attack_t *attk, enemy_t *enmy);
 
     //////////////////// scenes ////////////////////
 

@@ -9,8 +9,11 @@
 
 void handle_tower_attacks(game_t *game, playing_t *game_info)
 {
+    int furthest_enemy_x = find_furthest_enemy_x(game_info->enemy);
+
+    handle_atk_enemy_collision(game_info);
     for (attack_t *atk = game_info->atk; atk; atk = atk->next) {
-        get_next_atk_crds(atk, game->clock->time_elapsed);
+        get_next_atk_crds(atk, game->clock->time_elapsed, furthest_enemy_x);
         sfSprite_setPosition(atk->spr->spr, atk->spr->crds);
     }
     if (!game_info->enemy && game_info->atk) {

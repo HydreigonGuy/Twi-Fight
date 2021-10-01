@@ -25,6 +25,10 @@ attack_t *fill_attack(tower_t *tower)
     atk->id = tower->id;
     atk->atk = tower->atk;
     atk->spd = tower->spd;
+    atk->direction = 0;
+    if (tower->id == 1 && tower->spr->crds.y < 200) {
+        atk->direction = 1;
+    }
     atk->next = NULL;
     return (atk);
 }
