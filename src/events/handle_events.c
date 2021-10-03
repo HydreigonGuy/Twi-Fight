@@ -7,15 +7,29 @@
 
 #include "game.h"
 
-void init_extra_event(extra_events_t *extra)
+static void init_extra_event(extra_events_t *extra)
 {
     extra->space_bar_press = 0;
 }
 
-void fill_extra_events(sfEvent event, extra_events_t *extra)
+static void fill_extra_events(sfEvent event, extra_events_t *extra)
 {
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace)
         extra->space_bar_press = 1;
+}
+
+static void handle_mouse_events(sfEvent event, mouse_t *mouse)
+{
+        mouse->x = event.mouseMove.x;
+        mouse->y = event.mouseMove.y;
+        mouse->p_x = event.mouseButton.x;
+        mouse->p_y = event.mouseButton.y;
+        mouse->r_x = -1;
+        mouse->r_y = -1;
+        if (event.type == sfEvtMouseButtonReleased) {
+            mouse->r_x = event.mouseButton.x;
+            mouse->r_y = event.mouseButton.y;
+        }
 }
 
 extra_events_t handle_events(game_t *game)
@@ -29,14 +43,7 @@ extra_events_t handle_events(game_t *game)
             sfRenderWindow_close(game->window);
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
             game->state = GAME_STATE_EXIT;
-        game->mouse->x = event.mouseMove.x;
-        game->mouse->y = event.mouseMove.y;
-        game->mouse->p_x = event.mouseButton.x;
-        game->mouse->p_y = event.mouseButton.y;
-        if (event.type == sfEvtMouseButtonReleased) {
-            game->mouse->r_x = event.mouseButton.x;
-            game->mouse->r_y = event.mouseButton.y;
-        }
+        handle_mouse_events(event, game->mouse);
         fill_extra_events(event, &extra);
     }
     return (extra);

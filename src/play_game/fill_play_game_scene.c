@@ -18,8 +18,6 @@ scene_t *fill_play_game_scene(void)
         return (NULL);
     scene->bg = NULL;
     scene->btn = NULL;
-    fill_background(&scene->bg, my_str_concat(IMAGE_PATH, "wolf_cd.png"), 415, 472);
-    fill_rect(scene->bg->spr, 287, 228);
     fill_background(&scene->bg, my_str_concat(IMAGE_PATH, "game_bg.png"), 0, 0);
     fill_background(&scene->bg, my_str_concat(IMAGE_PATH, "wolf.png"), 452, 500);
     fill_btn(&scene->btn, my_str_concat(IMAGE_PATH, "btn/knife_tower_btn.png"), 1010, 50);

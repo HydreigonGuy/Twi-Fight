@@ -21,8 +21,9 @@ playing_t *fill_game_info(void)
     game_info->enemy = NULL;
     game_info->atk = NULL;
     game_info->spawn_var = -1;
+    game_info->wolf_btn = fill_wolf_btn();
     game_info->dialog = malloc(sizeof(sprite_t) * 3);
-    if (!game_info->dialog)
+    if (!game_info->dialog || !game_info->wolf_btn)
         return (NULL);
     for (int i = 0; i < 3; game_info->dialog[i] = NULL, i++);
     game_info->dialog[0] = fill_sprite(my_str_concat(IMAGE_PATH,

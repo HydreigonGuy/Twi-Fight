@@ -24,6 +24,7 @@ SRC	=	src/main.c	\
 		src/fill_structs/tower_parameters/get_tower_max_cd.c	\
 		src/fill_structs/tower_parameters/get_tower_path.c	\
 		src/fill_structs/tower_parameters/get_tower_spd.c	\
+		src/fill_structs/fill_wolf_btn.c	\
 		src/free_structs/free_game.c	\
 		src/free_structs/free_game_time.c	\
 		src/free_structs/free_sprite.c	\
@@ -65,6 +66,8 @@ SRC	=	src/main.c	\
 		src/handle_tower_attacks/find_furthest_enemy_x.c	\
 		src/handle_tower_attacks/handle_atk_enemy_collision.c	\
 		src/handle_tower_attacks/check_for_atk_colision.c	\
+		src/handle_tower_attacks/handle_wolf_btn_press.c	\
+		src/handle_tower_attacks/handle_wolf_map_shake.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
 		src/start_menu/display_start_menu.c	\
@@ -72,6 +75,7 @@ SRC	=	src/main.c	\
 		src/play_game/play_game.c	\
 		src/play_game/display_play_game.c	\
 		src/play_game/fill_play_game_scene.c	\
+		src/play_game/handle_map_shaking.c	\
 		adrien_lib/my_square_root.c	\
 		adrien_lib/my_vector_norm.c	\
 		adrien_lib/my_str_concat.c	\

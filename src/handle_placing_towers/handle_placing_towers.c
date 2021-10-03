@@ -19,7 +19,5 @@ void handle_placing_towers(game_t *game, playing_t *game_info, button_t *btn)
             add_tower(game_info, game->mouse->r_x, game->mouse->r_y);
             mouse_reset(game->mouse);
         }
-        if (game->mouse->r_x != -1)
-            mouse_reset(game->mouse);
     }
 }

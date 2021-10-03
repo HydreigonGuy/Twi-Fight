@@ -6,6 +6,7 @@
 */
 
 #include "game.h"
+#include <stdlib.h>
 
 void play_game(game_t *game)
 {
@@ -15,6 +16,7 @@ void play_game(game_t *game)
     if (!scene || !game_info)
         game->state = -3;
     mouse_reset(game->mouse);
+    srand(sfClock_getElapsedTime(game->clock->clock).microseconds % 10000);
     reset_game_time(game->clock);
     while (sfRenderWindow_isOpen(game->window) && game->state == 0) {
         update_clock(game->clock);

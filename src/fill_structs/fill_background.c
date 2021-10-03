@@ -17,6 +17,8 @@ background_t *get_next_background(char *file, int x, int y)
         return (NULL);
     bg->spr = fill_sprite(file, x, y);
     bg->next = NULL;
+    bg->x = x;
+    bg->y = y;
     return (bg);
 }
 

@@ -28,6 +28,8 @@
     typedef struct background_s {
         sprite_t *spr;
         struct background_s *next;
+        int x;
+        int y;
     } background_t;
 
     typedef struct scene_s {
@@ -109,12 +111,22 @@
         struct attack_s *next;
     } attack_t;
 
+    typedef struct wolf_btn_s {
+        sprite_t *cd_spr;
+        int cooldown;
+        int last_shake;
+        int shake_x;
+        int reset_shake;
+        int shake_y;
+    } wolf_btn_t;
+
     typedef struct playing_s {
         int tower_selected;
         sprite_t **dialog;
         tower_t *tower;
         enemy_t *enemy;
         attack_t *atk;
+        wolf_btn_t *wolf_btn;
         int spawn_var;
     } playing_t;
 
@@ -126,9 +138,17 @@
     #define ENEMY_SEPARATION    150
     #define ENEMY_Y             200
 
+    #define ENEMY_COLLISION_TOLERENCE   15
+
     #define ENEMY_SPD_LIMITTER      50000
     #define ATTACK_SPD_LIMITTER     40000
     #define TOWER_CD_LIMITTER       30000
+
+    // wolf button
+    #define WOLF_BTN_CD         200
+    #define MAP_SHAKE_TIME      30
+    #define TIME_BETWEEN_SHAKES 3
+    #define SHAKE_PIXEL_LIMIT   60
 
     // game states
     #define GAME_STATE_EXIT         -3
@@ -149,6 +169,7 @@
     tower_t *fill_tower(int selected, int x, int y);
     enemy_t *fill_enemy(int id, int x);
     attack_t *fill_attack(tower_t *tower);
+    wolf_btn_t *fill_wolf_btn(void);
 
     // attack parameters
     int get_attack_size(int id);
@@ -219,6 +240,8 @@
     int find_furthest_enemy_x(enemy_t *enemy);
     void handle_atk_enemy_collision(playing_t *game_info);
     int check_for_atk_colision(playing_t *gi, attack_t *attk, enemy_t *enmy);
+    void handle_wolf_btn_press(mouse_t *mouse, playing_t *game_info, int time);
+    void handle_wolf_map_shake(wolf_btn_t *btn, int time);
 
     //////////////////// scenes ////////////////////
 
@@ -232,5 +255,6 @@
     void play_game(game_t *game);
     scene_t *fill_play_game_scene(void);
     void display_play_game(sfRenderWindow *wdw, game_time_t *clk, scene_t *scn, playing_t *gi);
+    void handle_map_shaking(playing_t *gi, scene_t *scn);
 
 #endif /* !GAME_STRUCTS_H_ */
