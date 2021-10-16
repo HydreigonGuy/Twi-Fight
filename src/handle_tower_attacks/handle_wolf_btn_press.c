@@ -13,6 +13,7 @@ void handle_wolf_btn_press(mouse_t *mouse, playing_t *gi, int time)
     if (my_vector_norm(mouse->r_x, mouse->r_y, 555, 618) < 140 &&
         gi->wolf_btn->cooldown <= 0 && gi->enemy){
         gi->wolf_btn->cooldown = WOLF_BTN_CD;
+        spawn_wolves(gi);
         mouse_reset(mouse);
     }
     if (!gi->enemy && gi->wolf_btn->cooldown > 0) {

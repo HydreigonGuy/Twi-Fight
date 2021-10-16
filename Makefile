@@ -18,6 +18,7 @@ SRC	=	src/main.c	\
 		src/fill_structs/fill_tower.c	\
 		src/fill_structs/fill_enemy.c	\
 		src/fill_structs/fill_attack.c	\
+		src/fill_structs/fill_wolf.c	\
 		src/fill_structs/attack_parameters/get_attack_size.c	\
 		src/fill_structs/attack_parameters/get_attack_sprite.c	\
 		src/fill_structs/tower_parameters/get_tower_atk.c	\
@@ -68,6 +69,8 @@ SRC	=	src/main.c	\
 		src/handle_tower_attacks/check_for_atk_colision.c	\
 		src/handle_tower_attacks/handle_wolf_btn_press.c	\
 		src/handle_tower_attacks/handle_wolf_map_shake.c	\
+		src/handle_tower_attacks/spawn_all_wolves.c	\
+		src/handle_tower_attacks/spawn_wolves.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
 		src/start_menu/display_start_menu.c	\

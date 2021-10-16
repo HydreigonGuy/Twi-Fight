@@ -15,7 +15,7 @@ void get_next_atk_crds(attack_t *atk, int e_time, int enemy_x)
         else
             atk->spr->crds.y -= (e_time * atk->spd) / ATTACK_SPD_LIMITTER;
     }
-    if (atk->id == 2)
+    if (atk->id == 2 || atk->id == WOLF_ID)
         atk->spr->crds.y -= (e_time * atk->spd) / ATTACK_SPD_LIMITTER;
     if (atk->id == 3 || atk->id == 4) {
         if (enemy_x - atk->spr->crds.x < 0)

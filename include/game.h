@@ -150,6 +150,10 @@
     #define TIME_BETWEEN_SHAKES 3
     #define SHAKE_PIXEL_LIMIT   60
 
+    #define WOLF_ID         -1
+    #define WOLF_ATTACK     5
+    #define WOLF_SPEED      5
+
     // game states
     #define GAME_STATE_EXIT         -3
     #define GAME_STATE_START_MENU   1
@@ -170,6 +174,7 @@
     enemy_t *fill_enemy(int id, int x);
     attack_t *fill_attack(tower_t *tower);
     wolf_btn_t *fill_wolf_btn(void);
+    attack_t *fill_wolf(int count);
 
     // attack parameters
     int get_attack_size(int id);
@@ -236,12 +241,14 @@
     void add_one_attack(attack_t **atk, tower_t *tower);
     void get_next_atk_crds(attack_t *atk, int e_time, int enemy_x);
     void remove_excess_attacks(attack_t **atk);
-    int out_of_bounds(sprite_t *spr);
+    int out_of_bounds(sprite_t *spr, int id);
     int find_furthest_enemy_x(enemy_t *enemy);
     void handle_atk_enemy_collision(playing_t *game_info);
     int check_for_atk_colision(playing_t *gi, attack_t *attk, enemy_t *enmy);
     void handle_wolf_btn_press(mouse_t *mouse, playing_t *game_info, int time);
     void handle_wolf_map_shake(wolf_btn_t *btn, int time);
+    attack_t *spawn_all_wolves(void);
+    void spawn_wolves(playing_t *gi);
 
     //////////////////// scenes ////////////////////
 
