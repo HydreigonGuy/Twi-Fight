@@ -25,6 +25,7 @@ void handle_mooving_first_enemy(int clock, playing_t *game_info)
             game_info->enemy = hold;
             enm = game_info->enemy;
             check_first = 1;
+            free_one_life(&game_info->life);
         }
     }
 }
@@ -44,6 +45,7 @@ void move_enemies(int clk, playing_t *game_info)
             hold = enm->next->next;
             free(enm->next);
             enm->next = hold;
+            free_one_life(&game_info->life);
         }
     }
 }

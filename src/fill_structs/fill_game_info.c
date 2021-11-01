@@ -23,6 +23,7 @@ playing_t *fill_game_info(void)
     game_info->spawn_var = -1;
     game_info->wolf_btn = fill_wolf_btn();
     game_info->dialog = malloc(sizeof(sprite_t) * 3);
+    game_info->life = fill_game_lives();
     if (!game_info->dialog || !game_info->wolf_btn)
         return (NULL);
     for (int i = 0; i < 3; game_info->dialog[i] = NULL, i++);

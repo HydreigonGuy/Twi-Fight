@@ -18,4 +18,6 @@ void next_scene(game_t *game)
         start_menu(game);
     if (current_state == GAME_STATE_PLAY_GAME)
         play_game(game);
+    if (current_state == GAME_STATE_GAME_OVER)
+        game_over(game);
 }

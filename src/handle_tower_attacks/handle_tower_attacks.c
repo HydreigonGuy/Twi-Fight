@@ -28,4 +28,5 @@ void handle_tower_attacks(game_t *game, playing_t *game_info)
         tower->cooldown -= game->clock->time_elapsed / TOWER_CD_LIMITTER;
     if (game_info->enemy && game_info->tower)
         create_tower_attacks(game_info);
+    check_game_over(game, game_info->life);
 }

@@ -2,12 +2,12 @@
 ** Twi-Fight
 ** 
 ** File description:
-** display_start_menu
+** display_scene
 */
 
 #include "game.h"
 
-void display_start_menu(sfRenderWindow *window, scene_t *scene)
+void display_scene(sfRenderWindow *window, scene_t *scene)
 {
     button_t *btn = scene->btn;
     background_t *bg = scene->bg;

@@ -2,23 +2,21 @@
 ** Twi-Fight
 ** 
 ** File description:
-** start_menu
+** game_over
 */
 
 #include "game.h"
 
-void start_menu(game_t *game)
+void game_over(game_t *game)
 {
-    scene_t *scene = fill_start_menu_scene();
+    scene_t *scene = fill_game_over_scene();
 
     if (!scene)
         game->state = -3;
     mouse_reset(game->mouse);
     while (sfRenderWindow_isOpen(game->window) && game->state == 0) {
         handle_events(game);
-        mouse_check(scene->btn, game);
         display_scene(game->window, scene);
     }
     free_scene(scene);
-    change_start_menu_game_state(game);
 }

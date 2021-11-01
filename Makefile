@@ -26,6 +26,8 @@ SRC	=	src/main.c	\
 		src/fill_structs/tower_parameters/get_tower_path.c	\
 		src/fill_structs/tower_parameters/get_tower_spd.c	\
 		src/fill_structs/fill_wolf_btn.c	\
+		src/fill_structs/fill_game_lives.c	\
+		src/fill_structs/fill_life.c	\
 		src/free_structs/free_game.c	\
 		src/free_structs/free_game_time.c	\
 		src/free_structs/free_sprite.c	\
@@ -36,6 +38,8 @@ SRC	=	src/main.c	\
 		src/free_structs/free_all_towers.c	\
 		src/free_structs/free_one_attack.c	\
 		src/free_structs/free_one_enemy.c	\
+		src/free_structs/free_all_lives.c	\
+		src/free_structs/free_one_life.c	\
 		src/rect_handeling/fill_rect.c	\
 		src/rect_handeling/rerect_sprites.c	\
 		src/rect_handeling/calculate_rect_number.c	\
@@ -71,14 +75,17 @@ SRC	=	src/main.c	\
 		src/handle_tower_attacks/handle_wolf_map_shake.c	\
 		src/handle_tower_attacks/spawn_all_wolves.c	\
 		src/handle_tower_attacks/spawn_wolves.c	\
+		src/handle_tower_attacks/check_game_over.c	\
+		src/scene/display_scene.c	\
 		src/start_menu/start_menu.c	\
 		src/start_menu/fill_start_menu_scene.c	\
-		src/start_menu/display_start_menu.c	\
 		src/start_menu/change_start_menu_game_state.c	\
 		src/play_game/play_game.c	\
 		src/play_game/display_play_game.c	\
 		src/play_game/fill_play_game_scene.c	\
 		src/play_game/handle_map_shaking.c	\
+		src/game_over/game_over.c	\
+		src/game_over/fill_game_over_scene.c	\
 		adrien_lib/my_square_root.c	\
 		adrien_lib/my_vector_norm.c	\
 		adrien_lib/my_str_concat.c	\

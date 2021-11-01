@@ -31,6 +31,8 @@ void display_play_game(window_t *wdw, clk_t *clk, scene_t *scn, playing_t *gi)
         sfSprite_setTextureRect(btn->spr->spr, btn->spr->r);
         sfRenderWindow_drawSprite(wdw, btn->spr->spr, NULL);
     }
+    for (life_t *life = gi->life; life; life = life->next)
+        sfRenderWindow_drawSprite(wdw, life->spr->spr, NULL);
     for (attack_t *atk = gi->atk; atk; atk = atk->next)
         sfRenderWindow_drawSprite(wdw, atk->spr->spr, NULL);
     if (gi->spawn_var < 0 && gi->dialog[1] && gi->dialog[2])

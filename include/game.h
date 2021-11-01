@@ -85,6 +85,11 @@
         int state;
     } game_t;
 
+    typedef struct life_s {
+        sprite_t *spr;
+        struct life_s *next;
+    } life_t;
+
     typedef struct tower_s {
         sprite_t *spr;
         int id;
@@ -128,7 +133,10 @@
         attack_t *atk;
         wolf_btn_t *wolf_btn;
         int spawn_var;
+        life_t *life;
     } playing_t;
+
+    #define GAME_LIVES  3
 
     #define FRAME_RATE  30
     #define WINDOW_NAME "Game"
@@ -158,6 +166,7 @@
     #define GAME_STATE_EXIT         -3
     #define GAME_STATE_START_MENU   1
     #define GAME_STATE_PLAY_GAME    2
+    #define GAME_STATE_GAME_OVER    3
 
     // error handeling
     int handle_errors(void);
@@ -175,6 +184,8 @@
     attack_t *fill_attack(tower_t *tower);
     wolf_btn_t *fill_wolf_btn(void);
     attack_t *fill_wolf(int count);
+    life_t *fill_game_lives(void);
+    life_t *fill_life(int x);
 
     // attack parameters
     int get_attack_size(int id);
@@ -197,6 +208,8 @@
     void free_all_enemies(enemy_t *enemy);
     void free_one_attack(playing_t *game_info, attack_t *atk);
     void free_one_enemy(playing_t *game_info, enemy_t *enm);
+    void free_all_lives(life_t *life);
+    void free_one_life(life_t **life);
 
     // next scene
     void next_scene(game_t *game);
@@ -249,13 +262,15 @@
     void handle_wolf_map_shake(wolf_btn_t *btn, int time);
     attack_t *spawn_all_wolves(void);
     void spawn_wolves(playing_t *gi);
+    void check_game_over(game_t *game, life_t *life);
 
     //////////////////// scenes ////////////////////
+
+    void display_scene(sfRenderWindow *window, scene_t *scene);
 
     // start menu
     void start_menu(game_t *game);
     scene_t *fill_start_menu_scene(void);
-    void display_start_menu(sfRenderWindow *window, scene_t *scene);
     void change_start_menu_game_state(game_t *game);
 
     // play game
@@ -263,5 +278,9 @@
     scene_t *fill_play_game_scene(void);
     void display_play_game(sfRenderWindow *wdw, game_time_t *clk, scene_t *scn, playing_t *gi);
     void handle_map_shaking(playing_t *gi, scene_t *scn);
+
+    // game over
+    void game_over(game_t *game);
+    scene_t *fill_game_over_scene(void);
 
 #endif /* !GAME_STRUCTS_H_ */
